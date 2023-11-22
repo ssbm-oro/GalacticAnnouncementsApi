@@ -31,26 +31,42 @@ public class AnnouncementService
 
     public async Task<List<Announcement>> GetAnnouncementsAsync()
     {
-        throw new NotImplementedException();
+        return await databaseContext.Announcements
+            .OrderBy(a => a.ID)
+            .ToListAsync();
     }
 
-    public async Task<Announcement> GetAnnouncementAsync(int id) 
+    public async Task<Announcement?> GetAnnouncementAsync(int id) 
     {
-        throw new NotImplementedException();
+        Announcement? announcement = null;
+        try 
+        {
+            announcement = await databaseContext.Announcements
+            .Where(a => a.ID == id)
+            .FirstAsync();
+        }
+        catch
+        {
+        }
+
+        return announcement; 
     }
 
     public async Task CreateAnnouncementAsync(Announcement announcement)
     {
-        throw new NotImplementedException();
+        await databaseContext.Announcements.AddAsync(announcement);
+        await databaseContext.SaveChangesAsync();
     }
 
     public async Task UpdateAnnouncementAsync(Announcement announcement)
     {
-        throw new NotImplementedException();
+        databaseContext.Announcements.Update(announcement);
+        await databaseContext.SaveChangesAsync();
     }
 
     public async Task DeleteAnnouncementAsync(Announcement announcement)
     {
-        throw new NotImplementedException();
+        databaseContext.Remove(announcement);
+        await databaseContext.SaveChangesAsync();
     }
 }
