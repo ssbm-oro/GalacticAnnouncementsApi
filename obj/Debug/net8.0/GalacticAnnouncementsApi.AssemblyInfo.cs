@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GalacticAnnouncementsApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f187673978c83d1b3ad92cf0837aadc01e56692c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("GalacticAnnouncementsApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GalacticAnnouncementsApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

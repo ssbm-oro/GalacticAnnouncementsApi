@@ -55,7 +55,7 @@ paths:
           required: true
       responses:
         '204':
-          description: No Context
+          description: No Content
     put:
       description: Update an announcement
       parameters:
@@ -65,5 +65,5 @@ paths:
             type: integer
           required: true
       responses:
-        '200':
-          description: OK
+        '204':
+          description: No Content
