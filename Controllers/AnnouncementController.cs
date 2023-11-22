@@ -22,16 +22,17 @@ public class AnnouncementController : ControllerBase
 
 
     [HttpGet("{id}")]
-    public Announcement Get(int id)
+    public async Task<Announcement> Get(int id)
     {
-        return new Announcement ("Test", "Test", "Test", DateOnly.FromDateTime(DateTime.Now));
+        return await _announcementService.GetAnnouncementAsync(id);
     }
 
     [HttpPost]
     public async Task<IActionResult> Post(string? author, string? subject, string? body, int year, int month, int day)
     {
         Announcement announcement = new Announcement(author, subject, body, new DateOnly(year, month, day));
-        return CreatedAtAction(nameof(Get), new { id = 1}, announcement);
+        await _announcementService.CreateAnnouncementAsync(announcement);
+        return CreatedAtAction(nameof(Get), new { id = announcement.ID}, announcement);
     }
 
     [HttpDelete]

@@ -1,5 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace GalacticAnnouncementsApi.Models;
 
+[Index(nameof(ID))]
 public class Announcement
 {
     public int ID { get; set; }
