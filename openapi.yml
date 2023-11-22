@@ -1,0 +1,69 @@
+openapi: '3.0.2'
+info:
+  title: GalacticAnnouncementsApi
+  version: '1.0'
+servers:
+  - url: https://localhost/api
+paths:
+  /announcements:
+    get:
+      description: Get a list of announcements
+      parameters:
+        - name: "lastId"
+          in: query
+          schema:
+            type: integer
+          required: true
+        - name: "perPage"
+          in: query
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: OK
+  /announcement:
+    get:
+      description: Read an announcement
+      parameters:
+        - name: "id"
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: OK
+    post:
+      description: Create an announcement
+      parameters:
+        - name: "id"
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '201':
+          description: Created
+    delete:
+      description: Delete an announcement
+      parameters:
+        - name: "id"
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '204':
+          description: No Context
+    put:
+      description: Update an announcement
+      parameters:
+        - name: "id"
+          in: path
+          schema:
+            type: integer
+          required: true
+      responses:
+        '200':
+          description: OK
