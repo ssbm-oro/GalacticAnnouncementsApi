@@ -10,4 +10,12 @@ public class Announcement
     public string? Subject { get; set;}
 
     public string? Body { get; set; }
+
+    public Announcement(string? author, string? subject, string? body, DateOnly date)
+    {
+        this.Date = date;
+        this.Author = author;
+        this.Subject = subject;
+        this.Body = body;
+    }
 }
