@@ -15,9 +15,9 @@ public class AnnouncementController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<Announcement>> Get() 
+    public async Task<List<Announcement>> Get(int lastId, int perPage) 
     {
-        return await _announcementService.GetAnnouncementsAsync();
+        return await _announcementService.GetAnnouncementsAsync(lastId, perPage);
     }
 
     [HttpGet("{id}")]
@@ -44,7 +44,7 @@ public class AnnouncementController : ControllerBase
     [HttpDelete]
     public async Task<IActionResult> Delete(int id)
     {
-        Announcement announcement = await _announcementService.GetAnnouncementAsync(id);
+        Announcement? announcement = await _announcementService.GetAnnouncementAsync(id);
 
         if (announcement is null)
         {
@@ -59,7 +59,7 @@ public class AnnouncementController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult<Announcement>> Update(int id, string? author, string? subject, string? body, int year, int month, int day)
     {
-        Announcement announcement = await _announcementService.GetAnnouncementAsync(id);
+        Announcement? announcement = await _announcementService.GetAnnouncementAsync(id);
 
         if (announcement is null)
         {

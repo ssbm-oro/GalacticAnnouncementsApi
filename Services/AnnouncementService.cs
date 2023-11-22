@@ -29,10 +29,12 @@ public class AnnouncementService
         databaseContext = new AnnouncementContext(options);
     }
 
-    public async Task<List<Announcement>> GetAnnouncementsAsync()
+    public async Task<List<Announcement>> GetAnnouncementsAsync(int lastId, int perPage)
     {
         return await databaseContext.Announcements
             .OrderBy(a => a.ID)
+            .Where(a => a.ID > lastId)
+            .Take(perPage)
             .ToListAsync();
     }
 
